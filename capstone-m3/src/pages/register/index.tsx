@@ -22,26 +22,31 @@ function Register() {
             label="Nome"
             variant="outlined"
             type="text"
+            className="input"
           />
           <TextField
             label="Email"
             variant="outlined"
             type="email"
+            className="input"
           />
           <TextField
             label="Senha"
             variant="outlined"
             type="password"
+            className="input"
           />
           <TextField
             label="Confirmar Senha"
             variant="outlined"
             type="password"
+            className="input"
           />
           <TextField
             label="CPF"
             variant="outlined"
             type="text"
+            className="input"
           />
            <select name="" id="">
                 <option value="">Selecionar tipo de usuário</option>
