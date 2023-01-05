@@ -11,7 +11,7 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   padding: 20px 26px;
-  background-color: #f1c400;
+  background-color: #44b7e6;
   .formContainer {
     width: 100%;
     height: 100%;
@@ -26,7 +26,7 @@ export const StyledForm = styled.form`
     }
 
     h2 {
-      color: var(--gray-600);
+      color: #1c1c29
     }
     button {
       background: #93d7af;
@@ -35,33 +35,39 @@ export const StyledForm = styled.form`
       height: 60px;
       color: white;
     }
-    button:hover {
+    /* button:hover {
       background: var(--color-primary);
-    }
+    } */
     .p {
-      color: #999999;
+      color: #44b7e6;
     }
     .goRegister {
-      background: var(--grey-0);
+      background: #1c1c29;
+      border: 1px solid #44b7e6;
       border-radius: 8px;
       width: 100%;
       height: 60px;
-      color: #999999;
+      color: #44b7e6;
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
-    .goRegister:hover {
+    /* .goRegister:hover {
       background: var(--grey-300);
       color: var(--grey-100);
-    }
+    } */
     .goLogin {
-      color: var(--grey-300);
+      color: #1c1c29;
       text-decoration: underline;
     }
   }
   .error {
     color: var(--color-secondary)
   }
-
+.input, select {
+  background-color: #e8f0fe;
+  border: 1px solid #44b7e6;
+  border-radius: 5px;
+}
 `;
