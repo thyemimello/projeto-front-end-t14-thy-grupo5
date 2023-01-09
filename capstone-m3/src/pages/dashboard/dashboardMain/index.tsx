@@ -5,8 +5,10 @@ import { StyledDashboardMain } from './style'
 function DashboardMain() {
   return (
     <StyledDashboardMain>
-        <SearchBar/>
-        <PropertyList/>
+        <div className='mainContainer'>
+          {/* <SearchBar/> */}
+          <PropertyList/>
+        </div>
     </StyledDashboardMain>
   )
 }
