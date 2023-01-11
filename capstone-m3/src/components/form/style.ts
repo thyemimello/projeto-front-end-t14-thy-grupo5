@@ -63,9 +63,9 @@ export const StyledForm = styled.form`
     }
   }
   .error {
-    color: var(--color-secondary)
+    color: #EB5757;
   }
-.input, select {
+.input {
   background-color: #e8f0fe;
   border: 1px solid #44b7e6;
   border-radius: 5px;
