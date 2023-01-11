@@ -71,7 +71,7 @@ function UserProvider({ children }: iDefaultProviderProps) {
 
       setTimeout(() => {
         navigate("/dashboard");
-      }, 5000);
+      }, 1000);
     } catch (error) {
       toast.error("Senha ou Email Invalidos");
       console.log(error);
