@@ -1,17 +1,25 @@
 import styled from "styled-components";
 
-export const StyledLogin = styled.main`
+export const StyledDivLogin = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  
-  @media (min-width: 768px) {
-    flex-direction: row-reverse;
-    align-items: center;
+
+  .divContainer {
+    display: flex;
     justify-content: center;
-    gap: 60px;
+    align-items: center;
+    width: 90%;
+    height: 85%;
+    margin: 0 auto;
+  }
+
+  .divFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 15%;
+    gap: 8px;
+    color: var(--color-font);
   }
 `;
