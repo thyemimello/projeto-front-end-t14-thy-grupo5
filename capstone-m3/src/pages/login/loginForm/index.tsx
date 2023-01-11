@@ -1,15 +1,13 @@
 import { useContext } from "react";
-import {
-  iFormLogin,
-  UserContext,
-} from "../../../contexts/usercontext/UserContext";
 import { StyledDivLogo } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { iFormLogin, UserContext } from "../../../contexts/UserContext";
+import React from "react";
 
 export const LogoForm = () => {
-  const { loginRequest } = useContext(UserContext);
+  const { loginRequest } = useContext(UserContext)
 
   const loginSchema = yup.object().shape({
     email: yup.string().required("Campo Obrigatório").email("Email invalido"),
