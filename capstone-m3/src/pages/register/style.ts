@@ -8,6 +8,9 @@ export const StyledRegister = styled.main`
   align-items: center;
   justify-content: space-between;
   background-color: #1c1c29;
+  img {
+    max-width: 100%;
+  }
   /* .logo {
     width: 100px;
     height: 100px;
