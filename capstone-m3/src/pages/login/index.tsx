@@ -1,6 +1,6 @@
 import React from 'react'
-import { LogoForm } from "./LoginForm";
-import { LogoLogin } from "./LoginLogo";
+import { LogoForm } from "./loginForm";
+import { LogoLogin } from "./loginLogo";
 import { StyledDivLogin } from "./style";
 
 export const Login = () => {

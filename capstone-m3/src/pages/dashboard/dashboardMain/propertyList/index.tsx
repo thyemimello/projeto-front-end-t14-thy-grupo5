@@ -6,11 +6,6 @@ function PropertyList() {
   return (
     <StyledPropertyList>
         <PropertyCard/>
-        <PropertyCard/>
-        <PropertyCard/>
-        <PropertyCard/>
-        <PropertyCard/>
-        <PropertyCard/>
     </StyledPropertyList>
   )
 }

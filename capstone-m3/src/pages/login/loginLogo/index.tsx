@@ -1,4 +1,4 @@
-import imgLogo from "../../../Assets/Logoo.png";
+import imgLogo from "../../../assest/Logoo.png";
 import { StyledDivLogo } from "./style";
 
 export const LogoLogin = () => {
