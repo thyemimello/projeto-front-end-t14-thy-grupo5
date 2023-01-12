@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SearchIcon from './searchIcon.png'
 
 export const DivGeral = styled.div`
 width: 100%;
@@ -11,7 +12,7 @@ width: 100%;
 .posicionamento1 {
     display: flex;
     align-items: center;
-    position: relative;
+    /* position: relative; */
    
   }
 
@@ -47,10 +48,10 @@ width: 100%;
   .posicionamento1 {
     display: flex;
     align-items: center;
-    position: relative;
+    /* position: relative; */
   }
   .btnX {
-    position: absolute;
+    /* position: absolute; */
     right: 6%;
     top: 13%;
   }
@@ -65,7 +66,7 @@ width: 100%;
     cursor: pointer;
   }
   .divInput {
-    position: relative;
+    /* position: relative; */
     display: flex;
   }
   .btnFechar {
@@ -84,7 +85,7 @@ width: 100%;
     gap: 1rem;
   }
   .divIconeCont {
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
@@ -117,6 +118,12 @@ width: 100%;
     max-width: 500px;
     
   }
+  }
+  .searchBar {
+    background-image: url(${SearchIcon});
+    background-repeat: no-repeat;
+    background-position: right;
+    border: 2px solid var(--color-btnregister);
   }
 `;
 

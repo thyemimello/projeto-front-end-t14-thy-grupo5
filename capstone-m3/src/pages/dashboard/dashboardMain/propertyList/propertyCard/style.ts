@@ -20,8 +20,9 @@ export const  StyledPropertyCard = styled.div`
     border-bottom: solid 5px #1c1c29;
     display: flex;
     flex-direction: column;
-    position: relative;
-
+    /* position: relative; */
+    border: 2px solid #1965848c;
+    border-radius: 5px;
   }
   div {
     background-color: var( --color-Grey-0);
@@ -115,7 +116,7 @@ export const  StyledPropertyCard = styled.div`
   }
 
   .FiStar{
-    position: absolute;
+    /* position: absolute; */
     top: 10px;
     left: 10px;
     font-size: 1.8rem;

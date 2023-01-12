@@ -29,10 +29,11 @@ function Search() {
           <input
             onChange={(event) => filtraProduto(event)}
             placeholder="Digitar Pesquisa"
+            className="searchBar"
           ></input>
-          <Btn1 className="btnX ">
+          {/* <Btn1 className="btnX ">
             <AiOutlineSearch className="iconSearch" />
-          </Btn1>
+          </Btn1> */}
         </div>
       </DivGeral>
         

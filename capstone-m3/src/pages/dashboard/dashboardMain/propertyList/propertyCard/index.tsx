@@ -5,27 +5,14 @@ import { BtnAdd } from "./btnAdd/style";
 import { iProducts, UserContext } from "../../../../../contexts/UserContext";
 import { Api } from "../../../../../services/api";
 import {  StyledPropertyCard } from "./style";
+import { iProductProps } from "..";
+
+
 function PropertyCard() {
-  const { product, setProduct, productFilter, productSearch } =
+  const { product, setProduct, productFilter, productSearch, addFavorite } =
     useContext(UserContext);
 
-  useEffect(() => {
-    (async () => {
-      const token = JSON.parse(localStorage.getItem("@token") || "");
-      try {
-        const { data } = await Api.get<iProducts[]>("/posts", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setProduct(data);
-      } catch (err) {
-        console.log(err);
-      }
-    })();
-  }, [setProduct]);
-
+ 
   return (
     <StyledPropertyCard>
       <ul>
@@ -77,7 +64,9 @@ function PropertyCard() {
                   }).format(value)}
                 </p>
                 <span>
-                  <BtnAdd>Adicionar</BtnAdd>
+                  <BtnAdd onClick={() => {
+                    
+                  }}>Adicionar</BtnAdd>
                 </span>
               </li>
             )
