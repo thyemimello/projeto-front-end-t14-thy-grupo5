@@ -60,6 +60,7 @@ function Register() {
             variant="outlined"
             type="text"
             className="input"
+            color= {errors.name ? 'error' : 'success'}
             {...register("name")}
           />
            {errors.name?.message && (
@@ -70,6 +71,7 @@ function Register() {
             variant="outlined"
             type="email"
             className="input"
+            color= {errors.email ? 'error' : 'success'}
             {...register("email")}
           />
           {errors.email?.message && (
@@ -80,6 +82,7 @@ function Register() {
             variant="outlined"
             type="password"
             className="input"
+            color= {errors.password? 'error' : 'success'}
             {...register("password")}
           />
           {errors.password?.message && (
@@ -90,6 +93,7 @@ function Register() {
             variant="outlined"
             type="password"
             className="input"
+            color= {errors.confirmPassword? 'error' : 'success'}
             {...register("confirmPassword")}
           />
           {errors.confirmPassword?.message && (
