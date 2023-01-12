@@ -1,3 +1,4 @@
+
 import PropertyList from './propertyList'
 import SearchBar from './SearchBar'
 import { StyledDashboardMain } from './style'
@@ -6,7 +7,7 @@ function DashboardMain() {
   return (
     <StyledDashboardMain>
         <div className='mainContainer'>
-          {/* <SearchBar/> */}
+          { /*<SearchBar/>*/ }
           <PropertyList/>
         </div>
     </StyledDashboardMain>
