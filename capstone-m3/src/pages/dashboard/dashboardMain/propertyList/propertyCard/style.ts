@@ -1,28 +1,32 @@
 import styled from "styled-components";
 
-export const  StyledPropertyCard = styled.div`
+export const  StyledPropertyCard = styled.li`
   margin-top: 1.875rem;
   display: flex;
-  overflow-x: scroll;
-  width: 100%;
+  /* overflow-x: scroll; */
+  width: 30%;
   flex-direction: column;
   flex-wrap: wrap;
+  border: 2px solid #1965848c;
+  border-radius: 5px;
   ul {
     list-style: none;
     display: flex;
     gap: 1.25rem;
     padding:1.25rem;
-    
+    width: 100%;
+    flex-wrap:wrap;
     
   }
   li {
-    width: 18.75rem;
+    max-width: 20%;
     border-bottom: solid 5px #1c1c29;
     display: flex;
     flex-direction: column;
     /* position: relative; */
     border: 2px solid #1965848c;
     border-radius: 5px;
+
   }
   div {
     background-color: var( --color-Grey-0);
@@ -34,9 +38,8 @@ export const  StyledPropertyCard = styled.div`
     
   }
   img {
-    width: 100%;
-    height: 100%;
-   
+    max-width: 100%;
+   object-fit: cover;
   }
   
   p {

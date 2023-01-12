@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SearchIcon from './searchIcon.png'
 
-export const DivGeral = styled.div`
+export const DivGeral = styled.form`
 width: 100%;
   display: flex;
   flex-direction: column;
