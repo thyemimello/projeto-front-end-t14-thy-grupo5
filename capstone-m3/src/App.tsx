@@ -9,9 +9,11 @@ function App() {
   return (
     <div className="App">
       <Global />
-      <UserProvider>
+        <UserProvider>
         <Routes />
       </UserProvider>
+      
+      
       <ToastContainer
         position="top-right"
         autoClose={3000}

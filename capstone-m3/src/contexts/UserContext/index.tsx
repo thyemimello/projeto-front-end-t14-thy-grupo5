@@ -45,10 +45,15 @@ interface iUserContext {
   valueInput: string;
   setValueInput: React.Dispatch<React.SetStateAction<string>>;
   filteredList: iProducts[] | [];
-favoriteList: iProducts[];
+  favoriteList: iProducts[];
   favoriteModal: boolean;
   setFavoriteModal: React.Dispatch<React.SetStateAction<boolean>>;
   removeFavorite: (itemId: iProducts["id"]) => void;
+  modalIsOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalIsTitle: string;
+  setIsTitle: React.Dispatch<React.SetStateAction<string>>;
+  openModal: (data: iProducts, title: string) => void;
 }
 export interface iProducts {
   id: number;
@@ -73,7 +78,17 @@ function UserProvider({ children }: iDefaultProviderProps) {
   const [user, setUser] = useState<iUser | null>(null);
   const [favoriteList, setFavoriteList] = useState<iProducts[]>([])
   const [valueInput, setValueInput] = useState("");
-const [favoriteModal, setFavoriteModal] = useState(false)
+  const [favoriteModal, setFavoriteModal] = useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalIsTitle, setIsTitle] = useState("");
+
+
+const openModal = (data: iProducts, title: string) => { 
+        console.log({data, title})
+        setIsOpen(true);
+        setIsTitle(title);
+        // setModalCart(data)
+}
   const filteredList = product.filter((item) => {
    return valueInput == '' ? true : item.title.toLowerCase().includes(valueInput.toLowerCase())
   })
@@ -105,7 +120,7 @@ const [favoriteModal, setFavoriteModal] = useState(false)
       localStorage.setItem("@projetofront:Token", response.data.accessToken);
       setUser(response.data.user);
 
-setTimeout(() => {
+      setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
     } catch (error) {
@@ -140,7 +155,6 @@ setTimeout(() => {
   }, [setProduct]);
   function addFavorite(property: iProducts) {
     if(!favoriteList.some(favItem => favItem.id == property.id)) {
-
       setFavoriteList([...favoriteList, property])
       toast.success("Imóvel favoritado!");
     } else {
@@ -151,11 +165,6 @@ setTimeout(() => {
     const newFavList = favoriteList.filter((item) => item.id !== itemId);
     setFavoriteList(newFavList);
   }
-
-      console.log('nao ta na lista')
-    }
-  }
-
   return (
     <UserContext.Provider
       value={{
@@ -173,15 +182,16 @@ setTimeout(() => {
         addFavorite,
         valueInput,
         setValueInput,
-
         filteredList,
         favoriteList,
         favoriteModal,
         setFavoriteModal,
-        removeFavorite
-
-        filteredList
-
+        removeFavorite,
+        modalIsOpen,
+        setIsOpen,
+        modalIsTitle,
+        setIsTitle,
+        openModal
       }}
     >
       {children}
