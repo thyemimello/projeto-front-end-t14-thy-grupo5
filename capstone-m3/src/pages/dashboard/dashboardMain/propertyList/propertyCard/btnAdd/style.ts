@@ -6,7 +6,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 padding: 0rem 1.25rem;
-color: var(--color-Grey-0);
+color: #F5F5F5;
 gap: .625rem;
 height: 2.5rem;
 background: #1c1c29;

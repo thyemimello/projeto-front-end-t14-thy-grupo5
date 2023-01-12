@@ -7,9 +7,6 @@ width: 100%;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
- 
-
-  
 
 .posicionamento1 {
     display: flex;
@@ -37,10 +34,10 @@ width: 100%;
     width: 100%;
     min-width: 20rem;
     height: 3.75rem;
-    border: 0.125rem solid var( --color-Grey-20);
+    border: 0.125rem solid #E0E0E0;
     border-radius: 0.5rem;
     margin-left: 2.5rem;
-    background-color:var(--color-white);
+    background-color:#E0E0E0);
     margin-bottom: 1.25rem;
     margin-right: 0.625rem;
   }
@@ -62,7 +59,7 @@ width: 100%;
     font-size: 1.875rem;
     display: flex;
     gap: 1rem;
-    color: var(--color-Grey-50);
+    color: #828282;
  
   }
   .cursor {
@@ -125,17 +122,16 @@ width: 100%;
 `;
 
 export const Btn1 = styled.button`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 0rem 1.25rem;
-color: var(--color-Grey-0);
-gap: .625rem;
-height: 2.5rem;
-background: #1c1c29;
-border: .125rem solid #44b7e6;
-border-radius: .5rem;
-cursor:pointer;`
-
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1.25rem;
+  color:#F5F5F5;
+  gap: 0.625rem;
+  height: 2.5rem;
+  background: #1c1c29;
+  border: 0.125rem solid #44b7e6;
+  border-radius: 0.5rem;
+  cursor: pointer;
+`;

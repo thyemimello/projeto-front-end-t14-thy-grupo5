@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { StyledPropertyCard } from "./style";
 
 import { FiStar } from "react-icons/fi";
 import { BtnAdd } from "./btnAdd/style";
 import { iProducts, UserContext } from "../../../../../contexts/UserContext";
 import { Api } from "../../../../../services/api";
+import { DivMain } from "./style";
 function PropertyCard() {
   const { product, setProduct, productFilter, productSearch } =
     useContext(UserContext);
@@ -27,7 +27,7 @@ function PropertyCard() {
   }, [setProduct]);
 
   return (
-    <StyledPropertyCard>
+    <DivMain>
       <ul>
         {productFilter.length === 0 && productSearch.length !== 0 ? (
           <div className="divGeralResultado">
@@ -62,8 +62,8 @@ function PropertyCard() {
             ({ id, title, description, value, img, adress }, index, item) => (
               <li key={id}>
                 <div>
-                  <img src={img} alt="Foto do produto"></img>
                   <FiStar className="aiOutlineHeart cursor" />
+                  <img src={img} alt="Foto do produto"></img>
                 </div>
                 <p className="name">{title}</p>
                 <p className="description">{description}</p>
@@ -84,7 +84,9 @@ function PropertyCard() {
           )
         )}
       </ul>
-    </StyledPropertyCard>
+    </DivMain>
+     
+  
   );
 }
 

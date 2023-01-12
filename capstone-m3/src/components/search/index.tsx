@@ -1,9 +1,10 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { useContext } from "react";
 
-import { Btn1, DivGeral } from "./style";
+import {  Btn1, DivGeral } from "./style";
 
 import { UserContext } from "../../contexts/UserContext";
+
 
 
 function Search() {

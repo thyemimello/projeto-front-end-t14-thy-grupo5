@@ -1,6 +1,7 @@
+import Search from '../../components/search';
 import DashboardHeader from './dashboardHeader'
 import DashboardMain from './dashboardMain'
-import Search from './dashboardMain/SearchBar'
+
 import { StyledDashboard } from './style'
 
 function Dashboard() {
@@ -9,7 +10,6 @@ function Dashboard() {
         <DashboardHeader/>
         <Search/>
         <DashboardMain/>
-       
     </StyledDashboard>
   )
 }

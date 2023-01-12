@@ -124,8 +124,6 @@ function UserProvider({ children }: iDefaultProviderProps) {
         productSearch,
         setProductSearch
 
-
-
       }}
     >
       {children}
