@@ -15,7 +15,7 @@ function DashboardMain() {
           { /*<SearchBar/>*/ }
           <PropertyList/>
         </div>
-        <ModalChecker/>
+        {/* <ModalChecker/> */}
     </StyledDashboardMain>
   )
 }
