@@ -4,7 +4,7 @@ import { FiStar } from "react-icons/fi";
 import { BtnAdd } from "./btnAdd/style";
 import { iProducts, UserContext } from "../../../../../contexts/UserContext";
 import { Api } from "../../../../../services/api";
-import { DivMain } from "./style";
+import {  StyledPropertyCard } from "./style";
 function PropertyCard() {
   const { product, setProduct, productFilter, productSearch } =
     useContext(UserContext);
@@ -27,7 +27,7 @@ function PropertyCard() {
   }, [setProduct]);
 
   return (
-    <DivMain>
+    <StyledPropertyCard>
       <ul>
         {productFilter.length === 0 && productSearch.length !== 0 ? (
           <div className="divGeralResultado">
@@ -84,7 +84,8 @@ function PropertyCard() {
           )
         )}
       </ul>
-    </DivMain>
+    </StyledPropertyCard>
+    
      
   
   );

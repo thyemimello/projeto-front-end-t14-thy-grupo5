@@ -37,7 +37,6 @@ width: 100%;
     border: 0.125rem solid #E0E0E0;
     border-radius: 0.5rem;
     margin-left: 2.5rem;
-    background-color:#E0E0E0);
     margin-bottom: 1.25rem;
     margin-right: 0.625rem;
   }

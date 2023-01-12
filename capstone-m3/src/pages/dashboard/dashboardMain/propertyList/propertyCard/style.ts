@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DivMain = styled.div`
+export const  StyledPropertyCard = styled.div`
   margin-top: 1.875rem;
   display: flex;
   overflow-x: scroll;
