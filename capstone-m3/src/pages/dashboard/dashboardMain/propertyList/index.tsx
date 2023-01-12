@@ -1,15 +1,17 @@
-import React from 'react'
-import { iProducts } from '../../../../contexts/UserContext'
+import React, { useContext } from 'react'
+import { iProducts, UserContext } from '../../../../contexts/UserContext'
 import PropertyCard from './propertyCard'
 import { StyledPropertyList } from './style'
 
-export interface iProductProps {
-  item: iProducts
-}
+
 function PropertyList() {
+  const {filteredList} = useContext(UserContext)
   return (
     <StyledPropertyList>
-        <PropertyCard />
+      {filteredList?.map ((property, index)=> {
+          return  <PropertyCard key={index} property={property}/>
+        })}
+        {/* <PropertyCard /> */}
     </StyledPropertyList>
   )
 }

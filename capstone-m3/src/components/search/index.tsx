@@ -10,24 +10,30 @@ import { UserContext } from "../../contexts/UserContext";
 function Search() {
     const {
         product,
-        setProductFilter,
+        setProduct,
         setProductSearch,
+        setValueInput
       } = useContext(UserContext);
 
-      function filtraProduto(event: React.ChangeEvent<HTMLInputElement>) {
-        setProductSearch(event.target.value);
+
+      function handleInput (event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+      }
+
+      function filtraProduto(valueInput: string) {
+        // setProductSearch(event.target.value);
     
         const filter = product.filter((elem) =>
-          elem.title.toLowerCase().includes(event.target.value.toLowerCase())
+          elem.title.toLowerCase().includes(valueInput.toLowerCase())
         );
-        setProductFilter(filter);
+        setProduct(filter);
       }
 
       return (
-      <DivGeral>
+      <DivGeral onSubmit={(event) => handleInput(event)}>
         <div className="divInput">
           <input
-            onChange={(event) => filtraProduto(event)}
+            onChange={(event) => setValueInput(event.target.value)}
             placeholder="Digitar Pesquisa"
             className="searchBar"
           ></input>

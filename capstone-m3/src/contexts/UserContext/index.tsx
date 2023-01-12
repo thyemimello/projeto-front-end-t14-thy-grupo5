@@ -42,6 +42,9 @@ interface iUserContext {
   productSearch: string;
   setProductSearch:Dispatch<SetStateAction<string>>;
   addFavorite: (item: iProducts) => void;
+  valueInput: string;
+  setValueInput: React.Dispatch<React.SetStateAction<string>>;
+  filteredList: iProducts[] | [];
 }
 export interface iProducts {
   id: number;
@@ -65,6 +68,10 @@ function UserProvider({ children }: iDefaultProviderProps) {
   const [productSearch, setProductSearch] = useState<string>("");
   const [user, setUser] = useState<iUser | null>(null);
   const [favoriteList, setFavoriteList] = useState<iProducts[]>([])
+  const [valueInput, setValueInput] = useState("");
+  const filteredList = product.filter((item) => {
+   return valueInput == '' ? true : item.title.toLowerCase().includes(valueInput.toLowerCase())
+  })
   const navigate = useNavigate()
   async function userRegister(
     formData: iRegisterFormValues,
@@ -126,8 +133,8 @@ function UserProvider({ children }: iDefaultProviderProps) {
       }
     })();
   }, [setProduct]);
-  function addFavorite(item: iProducts) {
-    if(!favoriteList.some(favItem => favItem.id == item.id)) {
+  function addFavorite(property: iProducts) {
+    if(!favoriteList.some(favItem => favItem.id == property.id)) {
       console.log('nao ta na lista')
     }
   }
@@ -145,7 +152,10 @@ function UserProvider({ children }: iDefaultProviderProps) {
         setProductFilter,
         productSearch,
         setProductSearch,
-        addFavorite
+        addFavorite,
+        valueInput,
+        setValueInput,
+        filteredList
       }}
     >
       {children}
