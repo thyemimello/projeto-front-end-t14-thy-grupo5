@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "json-server": "^0.17.1",
-    "json-server-auth": "^2.1.0"
+    "react-router-dom": "^6.6.2",
+    "react-toastify": "^9.1.1"
   }
 }

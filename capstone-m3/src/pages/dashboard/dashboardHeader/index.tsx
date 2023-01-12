@@ -10,7 +10,9 @@ import { AiFillHeart } from "react-icons/ai";
 import ModalFavorites from "./modalFavorites";
 
 function DashboardHeader() {
+
   const { registerModal, setRegisterModal, favoriteModal, setFavoriteModal } = useContext(UserContext);
+
   const token = localStorage.getItem("@projetofront:Token");
   return (
     <StyledDashboardHeader>
@@ -23,9 +25,12 @@ function DashboardHeader() {
           </BtnSigningUp>}
           
         </div>
+
         <AiFillHeart className="favIcon" onClick={() => {
           setFavoriteModal(true)
         }}/>
+
+
         {token ? <Link className="logout" to={"/"} onClick={() => {
           localStorage.removeItem('@projetofront:Token')
         }}>
