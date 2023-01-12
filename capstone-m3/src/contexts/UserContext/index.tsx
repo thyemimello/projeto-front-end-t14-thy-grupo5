@@ -45,6 +45,10 @@ interface iUserContext {
   valueInput: string;
   setValueInput: React.Dispatch<React.SetStateAction<string>>;
   filteredList: iProducts[] | [];
+favoriteList: iProducts[];
+  favoriteModal: boolean;
+  setFavoriteModal: React.Dispatch<React.SetStateAction<boolean>>;
+  removeFavorite: (itemId: iProducts["id"]) => void;
 }
 export interface iProducts {
   id: number;
@@ -69,6 +73,7 @@ function UserProvider({ children }: iDefaultProviderProps) {
   const [user, setUser] = useState<iUser | null>(null);
   const [favoriteList, setFavoriteList] = useState<iProducts[]>([])
   const [valueInput, setValueInput] = useState("");
+const [favoriteModal, setFavoriteModal] = useState(false)
   const filteredList = product.filter((item) => {
    return valueInput == '' ? true : item.title.toLowerCase().includes(valueInput.toLowerCase())
   })
@@ -100,7 +105,7 @@ function UserProvider({ children }: iDefaultProviderProps) {
       localStorage.setItem("@projetofront:Token", response.data.accessToken);
       setUser(response.data.user);
 
-      setTimeout(() => {
+setTimeout(() => {
         navigate("/dashboard");
       }, 1000);
     } catch (error) {
@@ -135,9 +140,22 @@ function UserProvider({ children }: iDefaultProviderProps) {
   }, [setProduct]);
   function addFavorite(property: iProducts) {
     if(!favoriteList.some(favItem => favItem.id == property.id)) {
+
+      setFavoriteList([...favoriteList, property])
+      toast.success("Imóvel favoritado!");
+    } else {
+      toast.error("Imóvel já foi favoritado")
+    }
+  }
+  function removeFavorite(itemId: iProducts["id"]) {
+    const newFavList = favoriteList.filter((item) => item.id !== itemId);
+    setFavoriteList(newFavList);
+  }
+
       console.log('nao ta na lista')
     }
   }
+
   return (
     <UserContext.Provider
       value={{
@@ -155,7 +173,15 @@ function UserProvider({ children }: iDefaultProviderProps) {
         addFavorite,
         valueInput,
         setValueInput,
+
+        filteredList,
+        favoriteList,
+        favoriteModal,
+        setFavoriteModal,
+        removeFavorite
+
         filteredList
+
       }}
     >
       {children}

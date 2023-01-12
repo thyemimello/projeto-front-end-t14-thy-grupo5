@@ -6,9 +6,13 @@ import { UserContext } from "../../../contexts/UserContext";
 import ModalRegisterProperty from "./modalRegisterProperty";
 import { FaAddressCard } from "react-icons/fa"
 import { BtnSigningUp } from "./btnSigningUp/style";
+import { AiFillHeart } from "react-icons/ai";
+import ModalFavorites from "./modalFavorites";
 
 function DashboardHeader() {
-  const { registerModal, setRegisterModal } = useContext(UserContext);
+
+  const { registerModal, setRegisterModal, favoriteModal, setFavoriteModal } = useContext(UserContext);
+
   const token = localStorage.getItem("@projetofront:Token");
   return (
     <StyledDashboardHeader>
@@ -21,6 +25,12 @@ function DashboardHeader() {
           </BtnSigningUp>}
           
         </div>
+
+        <AiFillHeart className="favIcon" onClick={() => {
+          setFavoriteModal(true)
+        }}/>
+
+
         {token ? <Link className="logout" to={"/"} onClick={() => {
           localStorage.removeItem('@projetofront:Token')
         }}>
@@ -29,6 +39,7 @@ function DashboardHeader() {
         
         {registerModal && <ModalRegisterProperty />}
       </div>
+      {favoriteModal && <ModalFavorites/>}
     </StyledDashboardHeader>
   );
 }
