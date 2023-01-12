@@ -95,8 +95,8 @@ export const StyledDivLogo = styled.div`
     text-align: center;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 10px;
     line-height: 18px;
     color: var(--color-background);
     margin-top: 15px;

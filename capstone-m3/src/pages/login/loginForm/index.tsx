@@ -6,6 +6,8 @@ import { iFormLogin, UserContext } from "../../../contexts/UserContext";
 import React from "react";
 import { StyledDivLogo } from "./style";
 import { Link } from "react-router-dom";
+import { StyledForm } from "../../../components/form/style";
+import TextField from "@mui/material/TextField";
 
 export const LogoForm = () => {
   const { loginRequest } = useContext(UserContext)
@@ -32,36 +34,68 @@ export const LogoForm = () => {
   };
 
   return (
-    <StyledDivLogo>
-      <div className="divForm">
-        <form onSubmit={handleSubmit(onSubmitFunction)}>
-          <h2 className="titleLogin">Login</h2>
-          <p className="textLogin">Nome</p>
-          <input
-            className="inputLogin"
-            type="email"
-            placeholder="Digite seu nome"
-            {...register("email")}
-          />
-          <p className="error title7">{errors.email?.message}</p>
-          <p className="textLogin">Senha</p>
-          <input
-            className="inputLogin"
-            type="password"
-            placeholder="Senha"
-            {...register("password")}
-          />
-          <p className="error title7">{errors.password?.message}</p>
-          <button className="btnOpenLogin" type="submit">
-            Logar
-          </button>
-          <p className="textRegisterLogin">
-            Crie sua conta para saber mais detalhes do seu novo imóvel!
-          </p>
-
-          <Link className="btnRegisterLogin" to={'/register'}>Cadastrar</Link>
-        </form>
+    <StyledForm noValidate onSubmit={handleSubmit(onSubmitFunction)}>
+      <div className="formContainer">
+        <h2 className="titleLogin">Login</h2>
+            <TextField
+              label="Email"
+              variant="outlined"
+              type="email"
+              className="input"
+              color= {errors.email ? 'error' : 'success'}
+              {...register("email")}
+            />
+            <p className="error">{errors.email?.message}</p>
+            <TextField
+              label="Senha"
+              variant="outlined"
+              type="password"
+              className="input"
+              color= {errors.password? 'error' : 'success'}
+              {...register("password")}
+            />
+            <p className="error title7">{errors.password?.message}</p>
+            <button className="goRegister" type="submit">
+              Logar
+            </button>
+            <p className="goLogin">
+              Crie sua conta para saber mais detalhes do seu novo imóvel!
+            </p>
+            <Link className="goRegister" to={'/register'}>Cadastrar</Link>
       </div>
-    </StyledDivLogo>
+    </StyledForm>
+    // <StyledDivLogo>
+    //   <div className="divForm">
+      
+    //     <form onSubmit={handleSubmit(onSubmitFunction)}>
+    //       <h2 className="titleLogin">Login</h2>
+    //       <p className="textLogin">Nome</p>
+    //       <TextField
+    //         label="Email"
+    //         variant="outlined"
+    //         type="email"
+    //         className="input"
+    //         {...register("email")}
+    //       />
+    //       <p className="error title7">{errors.email?.message}</p>
+    //       <TextField
+    //         label="Senha"
+    //         variant="outlined"
+    //         type="password"
+    //         className="input"
+    //         {...register("password")}
+    //       />
+    //       <p className="error title7">{errors.password?.message}</p>
+    //       <button className="btnOpenLogin" type="submit">
+    //         Logar
+    //       </button>
+    //       <p className="textRegisterLogin">
+    //         Crie sua conta para saber mais detalhes do seu novo imóvel!
+    //       </p>
+
+    //       <Link className="btnRegisterLogin" to={'/register'}>Cadastrar</Link>
+    //     </form>
+    //   </div>
+    // </StyledDivLogo>
   );
 };

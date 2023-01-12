@@ -1,11 +1,10 @@
-import imgLogo from "../../../assest/Logoo.png";
+import LogoCapstone from '../../../components/logo/LogoCapstone.png'
 import { StyledDivLogo } from "./style";
 
 
 export const LogoLogin = () => {
   return (
-    <StyledDivLogo>
-      <img className="logoLogin" src={imgLogo} alt="" />
-    </StyledDivLogo>
+  <img className="logoLogin" src={LogoCapstone} alt="" />
+    
   );
 };
