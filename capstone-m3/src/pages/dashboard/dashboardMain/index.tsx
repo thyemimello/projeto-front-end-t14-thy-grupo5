@@ -1,8 +1,7 @@
 
-
 import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
-
+import ModalChecker from './modalChecker'
 import PropertyList from './propertyList'
 
 import { StyledDashboardMain } from './style'
@@ -16,6 +15,7 @@ function DashboardMain() {
           { /*<SearchBar/>*/ }
           <PropertyList/>
         </div>
+        <ModalChecker/>
     </StyledDashboardMain>
   )
 }

@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import CheckerProvider from "../contexts/checkerContext";
 import Dashboard from "../pages/dashboard";
 import Home from "../pages/home";
 import Login from "../pages/login";
@@ -10,7 +11,7 @@ export function RoutesImoveis() {
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/dashboard" element={<CheckerProvider><Dashboard/></CheckerProvider>}/>
     </Routes>
   );
 }

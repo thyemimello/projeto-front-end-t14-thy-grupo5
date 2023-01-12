@@ -9,7 +9,7 @@ export interface iProductProps {
   property: iProducts;
 }
 function PropertyCard({ property }: iProductProps) {
-  const { addFavorite} =
+  const { addFavorite, openModal} =
     useContext(UserContext);
 
   return (
@@ -17,6 +17,10 @@ function PropertyCard({ property }: iProductProps) {
       <div>
         <FiStar className="aiOutlineHeart cursor" />
         <img src={property.img} alt="Foto do produto"></img>
+      </div>
+      <div className="divChecked">
+      <button onClick={() => openModal(property, 'Formulário de verificação')}>Verificado</button>
+
       </div>
       <p className="name">{property.title}</p>
       <p className="description">{property.description}</p>
