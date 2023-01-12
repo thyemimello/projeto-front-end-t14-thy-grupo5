@@ -6,24 +6,35 @@ import { UserContext } from "../../../contexts/UserContext";
 import ModalRegisterProperty from "./modalRegisterProperty";
 import { FaAddressCard } from "react-icons/fa"
 import { BtnSigningUp } from "./btnSigningUp/style";
+import { AiFillHeart } from "react-icons/ai";
+import ModalFavorites from "./modalFavorites";
 
 function DashboardHeader() {
-  const { registerModal, setRegisterModal } = useContext(UserContext);
+  const { registerModal, setRegisterModal, favoriteModal, setFavoriteModal } = useContext(UserContext);
+  const token = localStorage.getItem("@projetofront:Token");
   return (
     <StyledDashboardHeader>
       <div className="headerContainer">
         <img src={LogoHeader} alt="" />
         <div onClick={() => setRegisterModal(true)} className="signingUp">
-          <BtnSigningUp>
+          {token && <BtnSigningUp>
             <FaAddressCard className="iconStyleCart cursor" />
             <p>CADASTRE SEU IMÓVEL</p>
-          </BtnSigningUp>
+          </BtnSigningUp>}
+          
         </div>
-        <Link className="logout" to={"/"}>
+        <AiFillHeart className="favIcon" onClick={() => {
+          setFavoriteModal(true)
+        }}/>
+        {token ? <Link className="logout" to={"/"} onClick={() => {
+          localStorage.removeItem('@projetofront:Token')
+        }}>
           Sair
-        </Link>
+        </Link> : <Link className="logout" to={"/login"} >Entrar</Link>}
+        
         {registerModal && <ModalRegisterProperty />}
       </div>
+      {favoriteModal && <ModalFavorites/>}
     </StyledDashboardHeader>
   );
 }

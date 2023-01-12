@@ -59,13 +59,16 @@ export const StyledForm = styled.form`
     } */
     .goLogin {
       color: #1c1c29;
-      text-decoration: underline;
+      font-size: 14px;
+  text-align: center;
     }
   }
   .error {
-    color: var(--color-secondary)
+    color: #E60000;
+    font-weight: 600;
+    font-size: 14px;
   }
-.input, select {
+.input {
   background-color: #e8f0fe;
   border: 1px solid #44b7e6;
   border-radius: 5px;

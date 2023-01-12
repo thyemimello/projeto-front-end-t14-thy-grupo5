@@ -25,4 +25,8 @@ export const StyledDashboardHeader = styled.header`
         border-radius: 5px;
     }
   }
+  .favIcon {
+    color: #44b7e6;
+    cursor:pointer;
+  }
 `;

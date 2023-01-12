@@ -1,12 +1,17 @@
+
+import { useContext } from 'react'
+import { UserContext } from '../../../contexts/UserContext'
 import PropertyList from './propertyList'
-import SearchBar from './SearchBar'
+
 import { StyledDashboardMain } from './style'
 
 function DashboardMain() {
+  const {user} =useContext(UserContext)
+  console.log(user)
   return (
     <StyledDashboardMain>
         <div className='mainContainer'>
-          {/* <SearchBar/> */}
+          { /*<SearchBar/>*/ }
           <PropertyList/>
         </div>
     </StyledDashboardMain>
