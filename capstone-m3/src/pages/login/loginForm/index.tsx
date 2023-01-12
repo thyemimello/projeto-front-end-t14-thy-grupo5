@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { StyledDivLogo } from "./style";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { iFormLogin, UserContext } from "../../../contexts/UserContext";
 import React from "react";
+import { StyledDivLogo } from "./style";
+import { Link } from "react-router-dom";
 
 export const LogoForm = () => {
   const { loginRequest } = useContext(UserContext)
@@ -14,17 +15,19 @@ export const LogoForm = () => {
     password: yup
       .string()
       .required("Campo obrigatorio")
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        "Mínimo de oito caracteres, pelo menos uma letra, um número e um símbolo"
-      ),
+      ,
   });
 
-  const { register, handleSubmit } = useForm<iFormLogin>({
+  const { register, 
+    handleSubmit,
+    formState: { errors } 
+  } = useForm<iFormLogin>({
+    mode: "onBlur",
     resolver: yupResolver(loginSchema),
   });
 
   const onSubmitFunction: SubmitHandler<iFormLogin> = (data) => {
+    console.log(data)
     loginRequest(data);
   };
 
@@ -40,13 +43,15 @@ export const LogoForm = () => {
             placeholder="Digite seu nome"
             {...register("email")}
           />
+          <p className="error title7">{errors.email?.message}</p>
           <p className="textLogin">Senha</p>
           <input
             className="inputLogin"
             type="password"
             placeholder="Senha"
-            {...register("email")}
+            {...register("password")}
           />
+          <p className="error title7">{errors.password?.message}</p>
           <button className="btnOpenLogin" type="submit">
             Logar
           </button>
@@ -54,9 +59,7 @@ export const LogoForm = () => {
             Crie sua conta para saber mais detalhes do seu novo imóvel!
           </p>
 
-          <button className="btnRegisterLogin" type="button">
-            Cadastrar
-          </button>
+          <Link className="btnRegisterLogin" to={'/register'}>Cadastrar</Link>
         </form>
       </div>
     </StyledDivLogo>
