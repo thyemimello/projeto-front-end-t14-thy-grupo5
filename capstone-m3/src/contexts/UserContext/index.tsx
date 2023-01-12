@@ -41,7 +41,7 @@ interface iUserContext {
   setProductFilter:Dispatch<SetStateAction<iProducts[]>>;
   productSearch: string;
   setProductSearch:Dispatch<SetStateAction<string>>;
-
+  addFavorite: (item: iProducts) => void;
 }
 export interface iProducts {
   id: number;
@@ -64,6 +64,7 @@ function UserProvider({ children }: iDefaultProviderProps) {
   const [productFilter, setProductFilter] = useState<iProducts[]>([]);
   const [productSearch, setProductSearch] = useState<string>("");
   const [user, setUser] = useState<iUser | null>(null);
+  const [favoriteList, setFavoriteList] = useState<iProducts[]>([])
   const navigate = useNavigate()
   async function userRegister(
     formData: iRegisterFormValues,
@@ -109,6 +110,27 @@ function UserProvider({ children }: iDefaultProviderProps) {
       navigate("/");
     }
   }, []);
+  useEffect(() => {
+    (async () => {
+      const token = localStorage.getItem("@projetofront:Token");
+      try {
+        const { data } = await Api.get<iProducts[]>("/posts", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setProduct(data);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
+  }, [setProduct]);
+  function addFavorite(item: iProducts) {
+    if(!favoriteList.some(favItem => favItem.id == item.id)) {
+      console.log('nao ta na lista')
+    }
+  }
   return (
     <UserContext.Provider
       value={{
@@ -122,8 +144,8 @@ function UserProvider({ children }: iDefaultProviderProps) {
         productFilter, 
         setProductFilter,
         productSearch,
-        setProductSearch
-
+        setProductSearch,
+        addFavorite
       }}
     >
       {children}
